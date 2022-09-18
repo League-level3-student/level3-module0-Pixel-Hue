@@ -39,13 +39,18 @@ for (int i = 0; i < numbers.length; i++) {
         // 9. without printing the entire array, print only the smallest number
         //    on the array
 boolean loopDone = false;
-
+int numLoop = 0;
 for (int i = 0; i < numbers.length; i++) {
-	if (loopDone=false) {
-	for (int j = 0; j < numbers.length-1; j++) {
-if(numbers[i] < numbers[j+1]) {
-	System.out.println(numbers[i]);
+	numLoop=0;
+	if (loopDone==false) {
+	for (int j = 0; j < numbers.length; j++) {
+if(numbers[i] <= numbers[j]) {
+	numLoop++;
+}
+if (numLoop==50) {
+	System.out.println("The smallest number is " + numbers[i]);
 	loopDone=true;
+	System.out.println("done");
 }
 	}
 	}
@@ -53,12 +58,31 @@ if(numbers[i] < numbers[j+1]) {
 System.out.println("---------------");
         // 10 print the entire array to see if step 8 was correct
 // fix number 9 its not done
+
 for (int i = 0; i < numbers.length; i++) {
 	System.out.println(numbers[i]);
 }
         // 11. print the largest number in the array.
+System.out.println("---------------");
+loopDone = false;
+for (int i = 0; i < numbers.length; i++) {
+	numLoop=0;
+	if (loopDone==false) {
+	for (int j = 0; j < numbers.length; j++) {
+if(numbers[i] >= numbers[j]) {
+	numLoop++;
+	
+}
+if (numLoop==50) {
+	System.out.println("The largest number is " + numbers[i]);
+	loopDone=true;
 
+}
+	}
+	}
+}
         // 12. print only the last element in the array
-
+System.out.println(numbers[48]);
+System.out.println(numbers[49]);
     }
 }

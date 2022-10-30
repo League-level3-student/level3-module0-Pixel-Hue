@@ -1,6 +1,8 @@
 package _01_Simple_Array_Algorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -48,35 +50,20 @@ void EOString(String[] array) {
     //5. Write a method that takes an array of Strings and prints all the Strings in the array
     //   in a completely random order. Almost every run of the program should result in a different order.
     static Random ran = new Random();
-    static int check = 0;
-    static ArrayList<int> UsedInt = new ArrayList<int>();
+    
     //make arraylist int
 static void RandomOrder(String[] array) {
-	int numPrinted = 0;
-	while (numPrinted < 5) {
-		
-	
-	
-	
-	for (int i = 0; i < array.length; i++) {
-		int e = ran.nextInt(array.length);
-		System.out.println(e);
-		for (int k = 0; k < UsedInt.size(); k++) {
-			int checkNum = Integer.parseInt(UsedInt.get(k));
-			
-			if (e != checkNum) {
-				check++;
+    	 List<String> list = Arrays.asList(array);
+    	Collections.shuffle(list);
+    	list.toArray(array);
+    	for (int j = 0; j < array.length; j++) {
+    		System.out.println(array[j]);
 		}
-			}
-		if (check== UsedInt.size()) {
-			System.out.println(array[e]);
-			numPrinted++;
-		}
-			UsedInt.add(e);
+    	
 		}
 		
 		//remove array that was printed to use all numbers
-	}
+
 }
-}
+
 

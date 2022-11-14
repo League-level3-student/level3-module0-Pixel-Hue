@@ -1,5 +1,7 @@
 package _03_Intro_to_2D_Arrays;
 
+import java.util.Iterator;
+
 public class _01_IntroTo2DArrays {
 
     public static void main(String[] args) {
@@ -11,13 +13,17 @@ int[][] array2D = { {1, 2, 3},
         // 2. use two for loops to set all the elements in the 2D array to
         //    a different integer
         //    BE SURE TO USE THE ARRAY'S length VARIABLE
-        
+for(int i = 0; i < 3; i++) {
+	for(int j = 0; j < 3; j++) {
+		array2D[i][j]++;
+	}
+}
         // 3. print the third element from the second 1D array (2DArray[1][2])
-
+System.out.println(array2D[1][2]);
         // 4. set the third element from the second 1D array to a different
         //    value
-
+array2D[1][2]++;
         // 5. print the element again and verify the value has changed
-
+System.out.println(array2D[1][2]);
     }
 }

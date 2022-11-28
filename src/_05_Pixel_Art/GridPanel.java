@@ -17,7 +17,7 @@ public class GridPanel extends JPanel{
     private int cols;
 
     // 1. Create a 2D array of pixels. Do not initialize it yet.
-
+    Pixel[][] pixels;
     private Color color;
 
     public GridPanel(int w, int h, int r, int c) {
@@ -32,14 +32,14 @@ public class GridPanel extends JPanel{
         color = Color.BLACK;
 
         setPreferredSize(new Dimension(windowWidth, windowHeight));
-Pixel[][] pixels;
+
         // 2. Initialize the pixel array using the rows and cols variables.
-pixels = new Pixel[rows][cols];
+pixels = new Pixel[rows-1][cols-1];
 
         // 3. Iterate through the array and initialize each element to a new pixel.
 for (int i = 0; i < pixels.length; i++) {
 	for (int j = 0; j < pixels.length; j++) {
-		pixels[i][j] = new Pixel(pixelWidth, pixelHeight);
+		pixels[i][j] = new Pixel(i, j);
 	}
 
 }
@@ -53,6 +53,17 @@ for (int i = 0; i < pixels.length; i++) {
     public void clickPixel(int mouseX, int mouseY) {
         // 5. Use the mouseX and mouseY variables to change the color
         //    of the pixel that was clicked. *HINT* Use the pixel's dimensions.
+    	//System.out.println(mouseX);
+    	//System.out.println(mouseY);
+    	
+    	for (int i = 0; i < pixels.length; i++) {
+    		for (int j = 0; j < pixels.length; j++) {
+    			if (mouseX == pixels[i][j].x && mouseY == pixels[i][j].y) {
+    				
+    				pixels[i][j].color= Color.CYAN;
+    			}
+    		}
+    	}
     }
 
     @Override
@@ -60,7 +71,16 @@ for (int i = 0; i < pixels.length; i++) {
         // 4. Iterate through the array.
         //    For every pixel in the list, fill in a rectangle using the pixel's color.
         //    Then, use drawRect to add a grid pattern to your display.
-    	
+    	for (int i = 0; i < pixels.length; i++) {
+    		for (int j = 0; j < pixels.length; j++) {
+    			System.out.println(pixels[i][j].x);
+    			g.setColor(pixels[i][j].color);
+    			g.drawRect(pixels[i][j].x,pixels[i][j].y, pixelWidth, pixelHeight);
+    			
+    		//fix this ^
+    		}
+
+    	}
 
     	}
     }

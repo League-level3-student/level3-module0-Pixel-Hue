@@ -23,7 +23,7 @@ public class ColorSelectionPanel extends JPanel implements MouseListener, Change
     private JSlider gSlider;
     private JSlider bSlider;
 
-    private Color color;
+    static Color color;
 
     private int r = 0;
     private int g = 0;

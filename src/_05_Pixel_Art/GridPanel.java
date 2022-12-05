@@ -58,9 +58,9 @@ for (int i = 0; i < pixels.length; i++) {
     	
     	for (int i = 0; i < pixels.length; i++) {
     		for (int j = 0; j < pixels.length; j++) {
-    			if (mouseX == pixels[i][j].x && mouseY == pixels[i][j].y) {
-    				
-    				pixels[i][j].color= Color.CYAN;
+    			if (mouseX >= pixels[i][j].x && mouseY <= pixels[i][j].y) {
+    				//&& mouseX >= pixels[i][j].x+pixelWidth && mouseY >=pixels[i][j].y+pixelHeight
+    				pixels[i][j].color= ColorSelectionPanel.color;
     			}
     		}
     	}
@@ -73,11 +73,16 @@ for (int i = 0; i < pixels.length; i++) {
         //    Then, use drawRect to add a grid pattern to your display.
     	for (int i = 0; i < pixels.length; i++) {
     		for (int j = 0; j < pixels.length; j++) {
-    			System.out.println(pixels[i][j].x);
+    			//System.out.println(pixels[i][j].x);
+    			//System.out.println("i: " + i);
+    			//System.out.println("j: " + j);
+    			//System.out.println(pixels[i][j].color);
+    			System.out.println(pixelWidth);
     			g.setColor(pixels[i][j].color);
     			g.drawRect(pixels[i][j].x,pixels[i][j].y, pixelWidth, pixelHeight);
     			
     		//fix this ^
+    			//draw the pixels bigger
     		}
 
     	}

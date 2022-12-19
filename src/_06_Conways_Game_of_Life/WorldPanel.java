@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Iterator;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -26,21 +27,26 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
         addMouseListener(this);
         timer = new Timer(500, this);
         this.cellsPerRow = cpr;
-
+Cell[][] cells;
         // 2. Calculate the cell size.
-
+cellSize=w/cpr;
         // 3a. Initialize the cell array to the appropriate size.
-
+cells= new Cell[w][h];
         // 3b. Iterate through the array and initialize each cell.
         //    Don't forget to consider the cell's dimensions when 
         //    passing in the location.
+for (int i = 0; i < cells.length; i++) {
+	for (int j = 0; j < cells.length; j++) {
+		cells[i][j]= new Cell(i, j, cellSize);
+	}
 
+}
     }
 
     public void randomizeCells() {
         // 4. Iterate through each cell and randomly set each
         //    cell's isAlive memeber to true or false
-
+    
         repaint();
     }
 

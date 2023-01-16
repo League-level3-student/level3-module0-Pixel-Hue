@@ -42,6 +42,8 @@ if (numNeighbors < 2) {
 	
 } else if (numNeighbors > 3) {
 	isAlive=false;
+}else if (numNeighbors == 3) {
+	isAlive=true;
 }
     }
 
@@ -57,7 +59,7 @@ if (numNeighbors < 2) {
     // draws an empty square if the cell is dead
     @Override
     public void draw(Graphics g) {
-        if(isAlive) {
+        if(isAlive == true) {
             g.setColor(Color.BLUE);
             g.fillRect(x, y, cellSize, cellSize);
         } else {

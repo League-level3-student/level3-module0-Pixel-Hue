@@ -48,12 +48,41 @@
 
 package _07_The_Wrong_Way_Cow;
 
-public class TheWrongWayCow {
+import java.util.Iterator;
 
+public class TheWrongWayCow {
+static boolean facingNorth;
+static boolean facingEast;
+static boolean facingSouth;
+static boolean facingWest;
     public static int[] findWrongWayCow(final char[][] field) {
+    	
         // Fill in the code to return the [col, row] coordinate position of the
         // head (letter 'c') of the wrong way cow!
-        
+        for (int i = 0; i < field.length; i++) {
+        	for (int j = 0; j < field.length; j++) {
+        		//make it so if atleast 2 cows face the same way then it decides the way the cows are facing
+        		
+        		//dont call this everytime \/
+        		if (field[i][j] == 'c') {
+        			//check north
+        			if (field[i-1][j] == 'o') {
+        				facingNorth = true;
+        			} //check east
+        			else if (field[i][j + 1] == 'o') {
+        				facingEast = true;
+        			} //check south
+        			else if (field[i+1][j] == 'o') {
+        				facingSouth = true;
+        			} //check west
+        			else if (field[i][j-1] == 'o') {
+        				facingWest = true;
+        			}
+        			
+        		}
+    		
+    		}	
+		}
         return null;
     }
 }

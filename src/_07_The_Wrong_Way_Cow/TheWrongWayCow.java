@@ -51,38 +51,64 @@ package _07_The_Wrong_Way_Cow;
 import java.util.Iterator;
 
 public class TheWrongWayCow {
-static boolean facingNorth;
-static boolean facingEast;
-static boolean facingSouth;
-static boolean facingWest;
+static int NorthCow;
+static int EastCow;
+static int SouthCow;
+static int WestCow;
+static int nx;
+static int wx;
+static int ex;
+static int sx;
+static int ny;
+static int wy;
+static int ey;
+static int sy;
+
     public static int[] findWrongWayCow(final char[][] field) {
     	
         // Fill in the code to return the [col, row] coordinate position of the
         // head (letter 'c') of the wrong way cow!
         for (int i = 0; i < field.length; i++) {
         	for (int j = 0; j < field.length; j++) {
-        		//make it so if atleast 2 cows face the same way then it decides the way the cows are facing
+        		//make it so if 1 cows faces the same way then it decides that is the col row
         		
-        		//dont call this everytime \/
+        	
+        		//check directions of cows
         		if (field[i][j] == 'c') {
-        			//check north
-        			if (field[i-1][j] == 'o') {
-        				facingNorth = true;
-        			} //check east
+        			 //check south
+        			 if (field[i+1][j] == 'o') {
+        			SouthCow++;
+        			sx = j;
+    				sy = i;
+        			}//check east
         			else if (field[i][j + 1] == 'o') {
-        				facingEast = true;
-        			} //check south
-        			else if (field[i+1][j] == 'o') {
-        				facingSouth = true;
-        			} //check west
+        				EastCow++;
+        				ex = j;
+        				ey = i;
+        			}//check north
+        			else if (field[i-1][j] == 'o') {
+        				NorthCow++;
+        				nx = j;
+        				ny = i;
+        			}  //check west
         			else if (field[i][j-1] == 'o') {
-        				facingWest = true;
-        			}
+        				WestCow++;
+        				wx = j;
+        				wy = i;
         			
+        			}
         		}
-    		
-    		}	
-		}
+       }	}
+    if (NorthCow == 1) {
+    	return new int[] {nx, ny};
+    } else if (EastCow == 1) {
+    	return new int[] {ex, ey};
+    } else if (SouthCow == 1) {
+    	return new int[] {sx, sy};
+    } else if (WestCow == 1) {
+     	return new int[] {wx, wy};
+    }
+     
         return null;
     }
 }

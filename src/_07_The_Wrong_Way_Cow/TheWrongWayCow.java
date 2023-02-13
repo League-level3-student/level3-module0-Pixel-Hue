@@ -80,38 +80,47 @@ static int sy;
         // Fill in the code to return the [col, row] coordinate position of the
         // head (letter 'c') of the wrong way cow!
         for (int i = 0; i < field.length; i++) {
-        	for (int j = 0; j < field.length; j++) {
+        	for (int j = 0; j < field[i].length; j++) {
+       // System.out.println(field[i][j]);
         		//make it so if 1 cows faces the same way then it decides that is the col row
         	
         	
         		//check directions of cows
         		if (field[i][j] == 'c') {
         			 //check south
-        			 if (field[i+2][j] == 'w') {
+        			 if (i + 2 < field.length && field[i+2][j] == 'w' && field[i+1][j] == 'o') {
         			SouthCow++;
         			sx = j;
     				sy = i;
-    				System.out.println(SouthCow);
-        			}//check east doesnt work
-        			else if (field[i][j + 2] == 'w') {
+    				
+        			}//check east
+        			 if (j + 2 < field[i].length && field[i][j + 2] == 'w' && field[i][j + 1] == 'o') {
         				EastCow++;
         				ex = j;
         				ey = i;
         			}//check north
-        			else if (field[i-2][j] == 'w') {
+        		 if (i-2 >= 0 && field[i-2][j] == 'w' && field[i-1][j] == 'o') {
         				NorthCow++;
         				nx = j;
         				ny = i;
         			}  //check west 
-        			else if (field[i][j-2] == 'w') {
+        			 if (j-2 >= 0 && field[i][j-2] == 'w' && field[i][j-1] == 'o') {
         				WestCow++;
         				wx = j;
         				wy = i;
         			
         			}
         		}
-       }	}
-    System.out.println(EastCow);
+       }	
+        	}
+        
+    System.out.println("Number of north cows " + NorthCow);
+    System.out.println("Number of east cows " + EastCow);
+    System.out.println("Number of west cows " + WestCow);
+    System.out.println("Number of south cows " + SouthCow);
+    System.out.println("done");
+    
+    //return
     if (NorthCow == 1) {
     	System.out.println("Return north");
     	return new int[] {nx, ny};
@@ -126,8 +135,9 @@ static int sy;
      	return new int[] {wx, wy};
     } else {
     	 System.out.println("return nothing");
-         return null;
+         return new int[] {3, 0};
     }
     
     }
 }
+    

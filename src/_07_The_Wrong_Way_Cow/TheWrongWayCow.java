@@ -113,12 +113,12 @@ static int sy;
         		}
        }	
         	}
-        
-    System.out.println("Number of north cows " + NorthCow);
+        //Print num cows of each direction
+   /* System.out.println("Number of north cows " + NorthCow);
     System.out.println("Number of east cows " + EastCow);
     System.out.println("Number of west cows " + WestCow);
     System.out.println("Number of south cows " + SouthCow);
-    System.out.println("done");
+    System.out.println("done");*/
     
     //return
     if (NorthCow == 1) {

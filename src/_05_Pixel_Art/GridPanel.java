@@ -37,8 +37,8 @@ public class GridPanel extends JPanel{
 pixels = new Pixel[rows][cols];
 
         // 3. Iterate through the array and initialize each element to a new pixel.
-for (int i = 0; i < pixels.length; i++) {
-	for (int j = 0; j < pixels.length; j++) {
+for (int i = 0; i < r; i++) {
+	for (int j = 0; j < c; j++) {
 		pixels[i][j] = new Pixel(i, j);
 	}
 
